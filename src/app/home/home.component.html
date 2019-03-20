@@ -1,0 +1,10 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <label>
+    Article url:
+    <input type="text" name="url" formControlName="url">
+  </label>
+
+  <button type="submit" [disabled]="!form.valid">Submit</button>
+</form>
+
+<div [innerHTML]="proccessText(dummyText)"></div>
