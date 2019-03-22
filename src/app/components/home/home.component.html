@@ -56,7 +56,9 @@
 		<div *ngIf="!isLoading && article" class="article">
 			<h2>
 				{{article.title}}
-				<a href="{{article.url}}" target="_blank"><span class="oi oi-external-link"></span></a>
+				<a href="{{article.url}}" target="_blank">
+					<fa-icon [icon]="faLink" size="xs"></fa-icon>
+				</a>
 			</h2>
 			<p *ngFor="let p of article.content" [innerHTML]="proccessText(p)"></p>
 		</div>

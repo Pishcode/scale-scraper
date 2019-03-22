@@ -3,6 +3,8 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Subscription } from 'rxjs';
+import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
+
 import { Article } from '../../models/article.model';
 
 @Component({
@@ -25,6 +27,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     articles: Article[] | null = null;
     article$$: Subscription;
     frequency: {};
+    faLink = faExternalLinkAlt;
+
 
     constructor(
         private http: HttpClient,
@@ -99,10 +103,14 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.article$$ = this.http.post('http://localhost:3000/api/article/', this.form.value).subscribe((response: Article[]) => {
             this.articles = response.filter((item) => item.content.length);
             this.articles = this.articles.map((item, key) => {
+                console.log(item.title);
                 return {...item, id: key};
             });
 
-            this.article = this.articles[0];
+            if (this.articles.length) {
+                this.selectArticle(0);
+            }
+
             this.isLoading = false;
         });
     }
