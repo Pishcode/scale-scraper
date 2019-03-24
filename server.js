@@ -77,6 +77,4 @@ app.route('/api/article').post((req, res) => {
 	});
 });
 
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!');
-});
+app.listen(process.env.PORT || 8080);
