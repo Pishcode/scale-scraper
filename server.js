@@ -11,12 +11,15 @@ var corsOptions = {
   optionsSuccessStatus: 200
 };
 
-app.use(bodyParser.json());;
+app.use(bodyParser.json());
 
 
-app.use(cors(corsOptions))
-app.get('/', function (req, res) {
-  res.send('Hello World!');
+app.use(cors(corsOptions));
+
+app.use(express.static(__dirname + '/dist/<name-of-app>'));
+
+app.get('/*', function(req,res) {
+	res.sendFile(path.join(__dirname+'/dist/<name-of-app>/index.html'));
 });
 
 app.route('/api/article').post((req, res) => {
