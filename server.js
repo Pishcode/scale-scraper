@@ -17,10 +17,10 @@ app.use(bodyParser.json());
 
 app.use(cors(corsOptions));
 
-app.use(express.static(__dirname + '/dist/<name-of-app>'));
+app.use(express.static(__dirname + '/dist/scale-scraper'));
 
-app.get('/*', function(req,res) {
-	res.sendFile(path.join(__dirname+'/dist/<name-of-app>/index.html'));
+app.get('/', function(req,res) {
+	res.sendFile(path.join(__dirname + '/dist/scale-scraper/index.html'));
 });
 
 app.route('/api/article').post((req, res) => {
