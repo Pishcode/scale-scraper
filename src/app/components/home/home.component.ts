@@ -6,6 +6,7 @@ import { Subscription } from 'rxjs';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 
 import { Article } from '../../models/article.model';
+import { environment } from '../../../environments/environment';
 
 @Component({
     selector: 'app-home',
@@ -100,7 +101,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.isLoading = true;
         this.articles = null;
 
-        this.article$$ = this.http.post('http://localhost:3000/api/article/', this.form.value).subscribe((response: Article[]) => {
+        this.article$$ = this.http.post(environment.baseUrl + '/api/article', this.form.value).subscribe((response: Article[]) => {
             this.articles = response.filter((item) => item.content.length);
             this.articles = this.articles.map((item, key) => {
                 console.log(item.title);
