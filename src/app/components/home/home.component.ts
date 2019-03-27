@@ -104,7 +104,6 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.article$$ = this.http.post(environment.baseUrl + '/api/article', this.form.value).subscribe((response: Article[]) => {
             this.articles = response.filter((item) => item.content.length);
             this.articles = this.articles.map((item, key) => {
-                console.log(item.title);
                 return {...item, id: key};
             });
 
