@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "node ./server/server.js",
-    "start-dev": "node ./server/server.js | ng serve",
-    "server": "node ./server/server.js",
+    "start": "node ./server.js",
+    "start-dev": "node ./server.js | ng serve",
+    "server": "node ./server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
