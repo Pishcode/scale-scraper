@@ -12,10 +12,10 @@ var corsOptions = {
 
 app.use(bodyParser.json());
 app.use(cors(corsOptions));
-app.use(express.static(__dirname + '/dist/scale-scraper'));
+app.use(express.static(__dirname + '../dist/scale-scraper'));
 
 app.get('/', function(req,res) {
-	res.sendFile(path.join(__dirname + '/dist/scale-scraper/index.html'));
+	res.sendFile(path.join(__dirname + '../dist/scale-scraper/index.html'));
 });
 
 app.use(require('./scraper'));
