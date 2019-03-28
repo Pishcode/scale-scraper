@@ -4,8 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "node ./server.js",
-    "start-dev": "node ./server.js | ng serve",
-    "server": "node ./server.js",
+    "start-dev": "node ./server/server.js | ng serve",
+    "server": "node ./server/server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
